@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C02BCFFB1B78CA130009ACB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BCFFA1B78CA130009ACB4 /* AppDelegate.swift */; };
+		C02BCFFD1B78CA130009ACB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BCFFC1B78CA130009ACB4 /* ViewController.swift */; };
+		C02BD0001B78CA130009ACB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BCFFE1B78CA130009ACB4 /* Main.storyboard */; };
+		C02BD0021B78CA130009ACB4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02BD0011B78CA130009ACB4 /* Images.xcassets */; };
+		C02BD0051B78CA130009ACB4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C02BD0031B78CA130009ACB4 /* LaunchScreen.xib */; };
+		C02BD0111B78CA140009ACB4 /* LocationTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BD0101B78CA140009ACB4 /* LocationTestTests.swift */; };
+		C02BD01B1B78D6BC0009ACB4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02BD01A1B78D6BC0009ACB4 /* MapKit.framework */; };
+		C02BD01D1B78D6FC0009ACB4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02BD01C1B78D6FC0009ACB4 /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C02BD00B1B78CA140009ACB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C02BCFED1B78CA130009ACB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C02BCFF41B78CA130009ACB4;
+			remoteInfo = LocationTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C02BCFF51B78CA130009ACB4 /* Fool Bike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fool Bike.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C02BCFF91B78CA130009ACB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C02BCFFA1B78CA130009ACB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C02BCFFC1B78CA130009ACB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C02BCFFF1B78CA130009ACB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C02BD0011B78CA130009ACB4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C02BD0041B78CA130009ACB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C02BD00A1B78CA140009ACB4 /* FoolBikeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoolBikeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C02BD00F1B78CA140009ACB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C02BD0101B78CA140009ACB4 /* LocationTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestTests.swift; sourceTree = "<group>"; };
+		C02BD01A1B78D6BC0009ACB4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C02BD01C1B78D6FC0009ACB4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C02BCFF21B78CA130009ACB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C02BD01D1B78D6FC0009ACB4 /* CoreLocation.framework in Frameworks */,
+				C02BD01B1B78D6BC0009ACB4 /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C02BD0071B78CA140009ACB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C02BCFEC1B78CA130009ACB4 = {
+			isa = PBXGroup;
+			children = (
+				C02BD01C1B78D6FC0009ACB4 /* CoreLocation.framework */,
+				C02BD01A1B78D6BC0009ACB4 /* MapKit.framework */,
+				C02BCFF71B78CA130009ACB4 /* FoolBike */,
+				C02BD00D1B78CA140009ACB4 /* FoolBikeTests */,
+				C02BCFF61B78CA130009ACB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C02BCFF61B78CA130009ACB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C02BCFF51B78CA130009ACB4 /* Fool Bike.app */,
+				C02BD00A1B78CA140009ACB4 /* FoolBikeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C02BCFF71B78CA130009ACB4 /* FoolBike */ = {
+			isa = PBXGroup;
+			children = (
+				C02BCFFA1B78CA130009ACB4 /* AppDelegate.swift */,
+				C02BCFFC1B78CA130009ACB4 /* ViewController.swift */,
+				C02BCFFE1B78CA130009ACB4 /* Main.storyboard */,
+				C02BD0011B78CA130009ACB4 /* Images.xcassets */,
+				C02BD0031B78CA130009ACB4 /* LaunchScreen.xib */,
+				C02BCFF81B78CA130009ACB4 /* Supporting Files */,
+			);
+			path = FoolBike;
+			sourceTree = "<group>";
+		};
+		C02BCFF81B78CA130009ACB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C02BCFF91B78CA130009ACB4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C02BD00D1B78CA140009ACB4 /* FoolBikeTests */ = {
+			isa = PBXGroup;
+			children = (
+				C02BD0101B78CA140009ACB4 /* LocationTestTests.swift */,
+				C02BD00E1B78CA140009ACB4 /* Supporting Files */,
+			);
+			path = FoolBikeTests;
+			sourceTree = "<group>";
+		};
+		C02BD00E1B78CA140009ACB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C02BD00F1B78CA140009ACB4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C02BCFF41B78CA130009ACB4 /* FoolBike */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C02BD0141B78CA140009ACB4 /* Build configuration list for PBXNativeTarget "FoolBike" */;
+			buildPhases = (
+				C02BCFF11B78CA130009ACB4 /* Sources */,
+				C02BCFF21B78CA130009ACB4 /* Frameworks */,
+				C02BCFF31B78CA130009ACB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoolBike;
+			productName = LocationTest;
+			productReference = C02BCFF51B78CA130009ACB4 /* Fool Bike.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C02BD0091B78CA140009ACB4 /* FoolBikeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C02BD0171B78CA140009ACB4 /* Build configuration list for PBXNativeTarget "FoolBikeTests" */;
+			buildPhases = (
+				C02BD0061B78CA140009ACB4 /* Sources */,
+				C02BD0071B78CA140009ACB4 /* Frameworks */,
+				C02BD0081B78CA140009ACB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C02BD00C1B78CA140009ACB4 /* PBXTargetDependency */,
+			);
+			name = FoolBikeTests;
+			productName = LocationTestTests;
+			productReference = C02BD00A1B78CA140009ACB4 /* FoolBikeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C02BCFED1B78CA130009ACB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Björn Oelke";
+				TargetAttributes = {
+					C02BCFF41B78CA130009ACB4 = {
+						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					C02BD0091B78CA140009ACB4 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = C02BCFF41B78CA130009ACB4;
+					};
+				};
+			};
+			buildConfigurationList = C02BCFF01B78CA130009ACB4 /* Build configuration list for PBXProject "FoolBike" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C02BCFEC1B78CA130009ACB4;
+			productRefGroup = C02BCFF61B78CA130009ACB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C02BCFF41B78CA130009ACB4 /* FoolBike */,
+				C02BD0091B78CA140009ACB4 /* FoolBikeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C02BCFF31B78CA130009ACB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C02BD0001B78CA130009ACB4 /* Main.storyboard in Resources */,
+				C02BD0051B78CA130009ACB4 /* LaunchScreen.xib in Resources */,
+				C02BD0021B78CA130009ACB4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C02BD0081B78CA140009ACB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C02BCFF11B78CA130009ACB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C02BCFFD1B78CA130009ACB4 /* ViewController.swift in Sources */,
+				C02BCFFB1B78CA130009ACB4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C02BD0061B78CA140009ACB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C02BD0111B78CA140009ACB4 /* LocationTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C02BD00C1B78CA140009ACB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C02BCFF41B78CA130009ACB4 /* FoolBike */;
+			targetProxy = C02BD00B1B78CA140009ACB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C02BCFFE1B78CA130009ACB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C02BCFFF1B78CA130009ACB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C02BD0031B78CA130009ACB4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C02BD0041B78CA130009ACB4 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C02BD0121B78CA140009ACB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C02BD0131B78CA140009ACB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C02BD0151B78CA140009ACB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/FoolBike/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Fool Bike";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C02BD0161B78CA140009ACB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "$(SRCROOT)/FoolBike/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Fool Bike";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C02BD0181B78CA140009ACB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LocationTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = FoolBikeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocationTest.app/LocationTest";
+			};
+			name = Debug;
+		};
+		C02BD0191B78CA140009ACB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LocationTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = FoolBikeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocationTest.app/LocationTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C02BCFF01B78CA130009ACB4 /* Build configuration list for PBXProject "FoolBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C02BD0121B78CA140009ACB4 /* Debug */,
+				C02BD0131B78CA140009ACB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C02BD0141B78CA140009ACB4 /* Build configuration list for PBXNativeTarget "FoolBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C02BD0151B78CA140009ACB4 /* Debug */,
+				C02BD0161B78CA140009ACB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C02BD0171B78CA140009ACB4 /* Build configuration list for PBXNativeTarget "FoolBikeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C02BD0181B78CA140009ACB4 /* Debug */,
+				C02BD0191B78CA140009ACB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C02BCFED1B78CA130009ACB4 /* Project object */;
+}
