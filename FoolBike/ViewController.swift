@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
-//import HealthKit
+import HealthKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -21,7 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 	@IBOutlet var timeLabel:UILabel!
 	@IBOutlet var distLabel:UILabel!
 	
-//	var hs:HKHealthStore! = HKHealthStore()
+	var hs:HKHealthStore! = HKHealthStore()
 	
 	var lm:CLLocationManager! = CLLocationManager()
 	var started = false
@@ -51,10 +51,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 			log("You denied location access.")
 		}
 		
-//		let hstatus = hs.authorizationStatusForType(HKObjectType.workoutType())
-//		if hstatus != HKAuthorizationStatus.SharingAuthorized {
-//			hs.requestAuthorizationToShareTypes(Set<HKSampleType>(HKWorkoutType), readTypes: nil, completion: nil)
-//		}
+		let hstatus = hs.authorizationStatusForType(HKObjectType.workoutType())
+		if hstatus != HKAuthorizationStatus.SharingAuthorized {
+			let share:Set = [HKSampleType.workoutType()]
+			let read:Set = [HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)]
+			hs.requestAuthorizationToShareTypes(share, readTypes: read, completion: {(ok, err) in
+				if err != nil {
+					println(String(format: "req error: %@", err))
+					return
+				}
+				println(String(format: "ok: %@", ok ? "true" : "false"))
+			})
+		}
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -102,11 +110,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 		}
 		
 		var cs:[CLLocationCoordinate2D] = []
-		cs.reserveCapacity(locs.count - 1)
-		for (id, loc) in enumerate(locs) {
-			if id == 0 {
-				continue
-			}
+		cs.reserveCapacity(locs.count)
+		for loc in locs {
 			cs.append(loc.coordinate)
 		}
 		let pl = MKPolyline(coordinates: &cs, count: cs.count)
@@ -155,6 +160,66 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 		log("=======");
 
 		btn.setTitle("Start", forState: UIControlState.Normal)
+
+		if time < 60.0 {
+			// ignore 1 minute rides
+			return
+		}
+		
+		saveWorkout()
+	}
+	
+	func saveWorkout() {
+		// check authorization
+		let hstatus = hs.authorizationStatusForType(HKObjectType.workoutType())
+		if hstatus != HKAuthorizationStatus.SharingAuthorized {
+			return;
+		}
+
+		// weight * mph * 0.4 * hrs
+		// kmh * 0.6 = mph
+		let saveWithWeight:(Double -> Void) = {(weight) in
+			var w = weight
+			if w == 0 {
+				w = 75
+			}
+			let kmh = 3.6 * self.time * self.dist
+			let cal = w * (kmh * 0.6 * 0.4) * (self.time / 60.0)
+			let workout = HKWorkout(
+				activityType: HKWorkoutActivityType.Cycling,
+				startDate: self.locs[0].timestamp,
+				endDate: self.locs.last?.timestamp,
+				duration: self.time,
+				totalEnergyBurned: nil,
+				totalDistance: HKQuantity(unit: HKUnit.meterUnit(), doubleValue: self.dist),
+				metadata: nil
+			)
+			self.log(String(format: "weight: %d", w))
+			// TODO: actually save this
+		}
+		
+		let type = HKObjectType.quantityTypeForIdentifier(HKQuantityTypeIdentifierBodyMass)
+		let sort = NSSortDescriptor(key:HKSampleSortIdentifierEndDate, ascending:false)
+		let query = HKSampleQuery(sampleType: type, predicate: nil, limit: 1, sortDescriptors: [sort], resultsHandler: {(query, results, err) in
+			if err != nil {
+				self.log(err.localizedDescription)
+				return
+			}
+			if results == nil || results.count == 0 {
+				self.log("no weight available")
+				saveWithWeight(0.0)
+				return
+			}
+			let sample = results.last as? HKQuantitySample
+			let quantity = sample?.quantity
+			let weight = quantity?.doubleValueForUnit(HKUnit.gramUnitWithMetricPrefix(HKMetricPrefix.Kilo))
+			if weight == nil {
+				self.log("could not extract weight")
+				saveWithWeight(0.0)
+			} else {
+				saveWithWeight(weight!)
+			}
+		})
 	}
 	
 	func start() {
