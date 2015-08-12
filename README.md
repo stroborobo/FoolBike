@@ -7,3 +7,5 @@ iOS sucks.)
 
 It's UI is full of debugging like markers for special events and a logging
 console on the bottom, so this is nothing you'd want to use on a daily basis.
+
+![Screenshot](screenshot.jpg)
