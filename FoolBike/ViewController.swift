@@ -33,7 +33,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 	var dist:CLLocationDistance! = 0
 	
 	var changes = 0
-	var notmoving = false
+	var notmoving:MKPointAnnotation?
+	var notmovingCount = 0
+
+	let distanceFilterMoving = 1.0
+	let distanceFilterStanding = 6.0
+	var distanceFilter = 0.0
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -88,8 +94,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 	}
 	
 	func log(text: String!) {
-		tv.text = text + "\n" + tv.text
-		println(NSDate().description + ": " + text)
+		var ts = NSDate().description
+		tv.text = ts + ": " + text + "\n" + tv.text
+		println(ts + ": " + text)
 	}
 	
 	func update() {
@@ -144,6 +151,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 		time = 0
 		dist = 0
 		changes = 0
+		distanceFilter = distanceFilterStanding
 	}
 	
 	func stop() {
@@ -262,19 +270,41 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 				locs.append(loc)
 			}
 			
-			// ignore init value, small movements (probably false positives) and the first few updates (they're inacrurate)
+			// ignore init value, small movements (probably false positives) and the first few updates (they're inacurate)
 			if last == nil || changes <= 5 {
 				locs[0] = loc
 				continue
 			}
-			if d < 1.0 {
-				if !notmoving {
+			if d < distanceFilter {
+				if notmoving == nil {
 					log("no movement")
-					notmoving = true
+					notmoving = MKPointAnnotation()
+					notmoving!.coordinate = loc.coordinate
 				}
+				notmovingCount++
+				distanceFilter = distanceFilterStanding
+				
+				/* make last have the current loc's timestamp */
+				locs[locs.count - 1] = CLLocation(
+					coordinate:         last!.coordinate,
+					altitude:           last!.altitude,
+					horizontalAccuracy: last!.horizontalAccuracy,
+					verticalAccuracy:   last!.verticalAccuracy,
+					course:             last!.course,
+					speed:              last!.speed,
+					timestamp:          loc.timestamp
+				)
 				continue
 			}
-			notmoving = false
+			if notmoving != nil {
+				notmoving!.title = "\(notmovingCount)"
+				mv.addAnnotation(notmoving)
+				log("no movement for \(notmovingCount) ticks")
+				
+				distanceFilter = distanceFilterMoving
+				notmovingCount = 0
+				notmoving = nil
+			}
 
 			log(String(format: "moved: %.1f meters", d))
 
@@ -296,7 +326,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 	func mapView(_: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
 		let ret = MKPolylineRenderer(polyline: overlay as? MKPolyline)
 		ret.strokeColor = UIColor(red: 0.3, green: 0.5, blue: 1, alpha: 0.6)
-		ret.lineWidth = 5
+		ret.lineWidth = 7
 		return ret
 
 	}
